@@ -1,0 +1,278 @@
+host: '192.168.20.11'
+port: 80
+prefix: '/gf'
+target_service: app.monitor
+
+expect_server_graphs:
+  # dstat
+  - service: app.monitor
+    section: dstat
+    graph: 'total cpu usage.usr'
+  - service: app.monitor
+    section: dstat
+    graph: 'total cpu usage.sys'
+  - service: app.monitor
+    section: dstat
+    graph: 'total cpu usage.idl'
+  - service: app.monitor
+    section: dstat
+    graph: 'total cpu usage.wai'
+  - service: app.monitor
+    section: dstat
+    graph: 'total cpu usage.hiq'
+  - service: app.monitor
+    section: dstat
+    graph: 'total cpu usage.siq'
+  - service: app.monitor
+    section: dstat
+    graph: 'load avg.1m'
+  - service: app.monitor
+    section: dstat
+    graph: 'load avg.5m'
+  - service: app.monitor
+    section: dstat
+    graph: 'load avg.15m'
+  - service: app.monitor
+    section: dstat
+    graph: 'memory usage.used'
+  - service: app.monitor
+    section: dstat
+    graph: 'memory usage.buff'
+  - service: app.monitor
+    section: dstat
+    graph: 'memory usage.cach'
+  - service: app.monitor
+    section: dstat
+    graph: 'memory usage.free'
+  - service: app.monitor
+    section: dstat
+    graph: 'dsktotal.read'
+  - service: app.monitor
+    section: dstat
+    graph: 'dsktotal.writ'
+  - service: app.monitor
+    section: dstat
+    graph: 'iototal.read'
+  - service: app.monitor
+    section: dstat
+    graph: 'iototal.writ'
+  - service: app.monitor
+    section: dstat
+    graph: 'nettotal.recv'
+  - service: app.monitor
+    section: dstat
+    graph: 'nettotal.send'
+  - service: app.monitor
+    section: dstat
+    graph: 'swap.used'
+  - service: app.monitor
+    section: dstat
+    graph: 'swap.free'
+  - service: app.monitor
+    section: dstat
+    graph: 'udp.lis'
+  - service: app.monitor
+    section: dstat
+    graph: 'udp.act'
+  - service: app.monitor
+    section: dstat
+    graph: 'tcp sockets.lis'
+  - service: app.monitor
+    section: dstat
+    graph: 'tcp sockets.act'
+  - service: app.monitor
+    section: dstat
+    graph: 'tcp sockets.syn'
+  - service: app.monitor
+    section: dstat
+    graph: 'tcp sockets.tim'
+  - service: app.monitor
+    section: dstat
+    graph: 'tcp sockets.clo'
+  #complex graph
+  - service: app.monitor
+    section: dstat
+    graph: 'complex total cpu usage'
+  - service: app.monitor
+    section: dstat
+    graph: 'complex swap'
+  - service: app.monitor
+    section: dstat
+    graph: 'complex memory usage'
+  - service: app.monitor
+    section: dstat
+    graph: 'complex load avg'
+  - service: app.monitor
+    section: dstat
+    graph: 'complex io_total'
+  - service: app.monitor
+    section: dstat
+    graph: 'complex dsk_total'
+  # nginx_status
+  - service: app.monitor
+    section: nginx_status
+    graph: active_connections
+  - service: app.monitor
+    section: nginx_status
+    graph: handled_request
+  - service: app.monitor
+    section: nginx_status
+    graph: keepalive
+
+expect_fixed_graphs:
+  # forwardd
+  - service: app.monitor
+    section: monitor_forwardd
+    graph: achieve
+  - service: app.monitor
+    section: monitor_forwardd
+    graph: forward
+  - service: app.monitor
+    section: monitor_forwardd
+    graph: mixed
+  # jobd
+  - service: app.monitor
+    section: monitor_jobd
+    graph: job
+  # jobd
+  - service: app.monitor
+    section: monitor_publicationd
+    graph: publication
+  # rds
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: BinLogDiskUsage
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: CPUUtilization
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: DiskQueueDepth
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: FreeStorageSpace
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: FreeableMemory
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: ReadIOPS
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: ReadLatency
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: ReadThroughput
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: SwapUsage
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: WriteIOPS
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: WriteLatency
+  - service: app.monitor
+    section: cloudwatch.rds
+    graph: WriteThroughput
+  # cache
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: CPUUtilization
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: CurrConnections
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: CurrItems
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: Evictions
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: FreeableMemory
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: NetworkBytesIn
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: NetworkBytesOut
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: NewConnections
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: NewItems
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: Reclaimed
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: SwapUsage
+  - service: app.monitor
+    section: cloudwatch.cache0001
+    graph: UnusedMemory
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: CPUUtilization
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: CurrConnections
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: CurrItems
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: Evictions
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: FreeableMemory
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: NetworkBytesIn
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: NetworkBytesOut
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: NewConnections
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: NewItems
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: Reclaimed
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: SwapUsage
+  - service: app.monitor
+    section: cloudwatch.cache0002
+    graph: UnusedMemory
+  # elb
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: HTTPCode_Backend_2XX
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: HTTPCode_Backend_3XX
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: HTTPCode_Backend_4XX
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: HTTPCode_Backend_5XX
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: HTTPCode_ELB_4XX
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: HealthyHostCount
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: Latency
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: RequestCount
+  - service: app.monitor
+    section: cloudwatch.elb
+    graph: UnHealthyHostCount
