@@ -24,10 +24,16 @@ main();
 sub main {
   if ( $options->{ mode } eq 'delete' ) {
     my $exception_graphs = exception_graphs();
-    warn Dumper $exception_graphs;
     map { print $_->{ section_name } . "/". $_->{ graph_name } . "\n" } @$exception_graphs;
-    print "delete target:" . scalar @$exception_graphs;
-    delete_exception_graphs( $exception_graphs ) if scalar @$exception_graphs > 0;
+
+    my $answer = "";
+    while ( $answer ne 'yes' and $answer ne 'no' ) {
+      print "delete target:" . scalar @$exception_graphs . ". yes or no? :";
+      chomp( $answer = <STDIN> );
+      if ( $answer eq 'yes' ) {
+        delete_exception_graphs( $exception_graphs ) if scalar @$exception_graphs > 0;
+      }
+    }
   }
   elsif ( $options->{ mode } eq 'list' ) {
     graph_list();
