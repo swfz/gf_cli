@@ -46,22 +46,22 @@ expect_server_graphs:
     graph: 'memory usage.free'
   - service: app.monitor
     section: dstat
-    graph: 'dsktotal.read'
+    graph: 'dsk_total.read'
   - service: app.monitor
     section: dstat
-    graph: 'dsktotal.writ'
+    graph: 'dsk_total.writ'
   - service: app.monitor
     section: dstat
-    graph: 'iototal.read'
+    graph: 'io_total.read'
   - service: app.monitor
     section: dstat
-    graph: 'iototal.writ'
+    graph: 'io_total.writ'
   - service: app.monitor
     section: dstat
-    graph: 'nettotal.recv'
+    graph: 'net_total.recv'
   - service: app.monitor
     section: dstat
-    graph: 'nettotal.send'
+    graph: 'net_total.send'
   - service: app.monitor
     section: dstat
     graph: 'swap.used'
